@@ -7,7 +7,8 @@ import {
   faMedium,
   faStackOverflow,
 } from "@fortawesome/free-brands-svg-icons";
-import { Box, HStack } from "@chakra-ui/react";
+import { Box, HStack, MenuItem, Menu, MenuList, MenuButton } from "@chakra-ui/react";
+
 
 const socials = [
   {
@@ -65,14 +66,14 @@ const Header = () => {
         >
           <nav>
             <HStack spacing={8}>
-              { socials.map( (e) => {
-                  return (
-                    <a href={e.url} target="_blank">
-                      <FontAwesomeIcon icon={e.icon} size="2x" />
-                    </a>
-                  );
-                })                
-              }
+                  { socials.map( (e) => {
+                      return (
+                          <a href={e.url} target="_blank">
+                            <FontAwesomeIcon icon={e.icon} size="2x" />
+                          </a>  
+                      );
+                    })                
+                  } 
             </HStack>
           </nav>
           <nav>

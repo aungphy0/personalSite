@@ -6,14 +6,14 @@ export const ResponsiveProvider = ({children}) => {
 
     const [width, setWindowWidth] = useState(0);
 
-    useEffect((width) => {
+    useEffect(() => {
         updateDimensions(); 
     
         window.addEventListener('resize', updateDimensions);
     
         return ( () => window.removeEventListener('resize', updateDimensions));
     
-      }, [width]);
+      });
     
       const updateDimensions = () => {
         const width = window.innerWidth
