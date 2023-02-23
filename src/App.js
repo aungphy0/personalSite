@@ -6,8 +6,27 @@ import ContactMeSection from "./components/ContactMeSection";
 import Footer from "./components/Footer";
 import { AlertProvider } from "./context/alertContext";
 import Alert from "./components/Alert";
+import { useState, useEffect } from 'react';
 
 function App() {
+
+  const [width, setWindowWidth] = useState(window.innerWidth);
+
+  useEffect((width) => {
+    updateDimensions(); 
+
+    window.addEventListener('resize', updateDimensions);
+
+    // return () => window.removeEventListener('resize', updateDimensions);
+
+  }, [width]);
+
+  const updateDimensions = () => {
+    const width = window.innerWidth
+    setWindowWidth(width);
+
+  };
+  
   return (
     <ChakraProvider>
       <AlertProvider>
@@ -22,6 +41,7 @@ function App() {
       </AlertProvider>
     </ChakraProvider>
   );
+  
 }
 
 export default App;
