@@ -7,20 +7,18 @@ export const ResponsiveProvider = ({children}) => {
     const [width, setWindowWidth] = useState(0);
 
     useEffect(() => {
-        updateDimensions(); 
+        const updateDimensions = () => {
+            const width = window.innerWidth
+            setWindowWidth(width);
+        
+        };
     
         window.addEventListener('resize', updateDimensions);
     
         return ( () => window.removeEventListener('resize', updateDimensions));
     
-      });
+      },[width]);
     
-      const updateDimensions = () => {
-        const width = window.innerWidth
-        setWindowWidth(width);
-    
-      };
-
       return (
         <ResponsiveContext.Provider>
             {children}
